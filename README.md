@@ -6,8 +6,6 @@
 <p align="center">
 <a href="#tech">Technologies</a>
 <a href="#started">Getting Started</a>
-<a href="#routes">API Endpoints</a>
-
 </p>
 
 <p align="center">A full-stack CRUD (Create, Read, Update, Delete) application built with ReactJS for the frontend, Node.js and Express for the backend, MySQL for the database, styled using Tailwind CSS and DaisyUI for a modern and responsive UI.</p>
