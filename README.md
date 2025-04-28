@@ -85,3 +85,8 @@ Run both frontend and backend simultaneously:
 cd root
 npm run dev
 ```
+
+Database Schema.
+![image](https://github.com/user-attachments/assets/d8b6a508-2bac-4abe-8ccd-3da544bd7639)
+![2025-04-28 22-51-54](https://github.com/user-attachments/assets/76ff3d7e-92ba-4e8b-b097-c61ec33832ff)
+
