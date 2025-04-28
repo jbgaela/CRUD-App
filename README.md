@@ -1,5 +1,8 @@
 <h1 align="center" style="font-weight: bold;">To-do list CRUD Web app 💻</h1>
 
+![image](https://github.com/user-attachments/assets/58ab9920-f41b-47f6-b499-4bda9cc1fc90)
+
+
 <p align="center">
 <a href="#tech">Technologies</a>
 <a href="#started">Getting Started</a>
