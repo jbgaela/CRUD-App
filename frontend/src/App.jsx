@@ -10,6 +10,14 @@ function App() {
   const [editingId, setEditingId] = useState(null);
   const [editText, setEditText] = useState("");
 
+  useEffect(() => {
+    fetchTodos();
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
   const fetchTodos = async () => {
     try {
       const response = await axios.get(API_URL);
@@ -19,21 +27,13 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    fetchTodos();
-  }, []);
-
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
     setTheme(newTheme);
     document.documentElement.setAttribute("data-theme", newTheme);
   };
 
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
-
-  const handleAddTodo = async () => {
+  const addTodoHandler = async () => {
     if (!newTodo.trim()) return;
 
     try {
@@ -45,7 +45,7 @@ function App() {
     }
   };
 
-  const handleDeleteTodo = async (id) => {
+  const deleteTodoHandler = async (id) => {
     try {
       await axios.delete(`${API_URL}/${id}`);
       fetchTodos();
@@ -54,12 +54,12 @@ function App() {
     }
   };
 
-  const handleEditTodo = (todo) => {
+  const editTodoHandler = (todo) => {
     setEditingId(todo.id);
     setEditText(todo.title);
   };
 
-  const handleUpdateTodo = async (id) => {
+  const updateTodoHandler = async (id) => {
     if (!editText.trim()) return;
 
     try {
@@ -85,7 +85,7 @@ function App() {
 
   const handleKeyDown = (e, id) => {
     if (e.key === "Enter") {
-      handleUpdateTodo(id);
+      updateTodoHandler(id);
     }
   };
 
@@ -104,10 +104,10 @@ function App() {
           placeholder="Add new todo..."
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && handleAddTodo()}
+          onKeyDown={(e) => e.key === "Enter" && addTodoHandler()}
           className="input input-bordered w-full max-w-xs"
         />
-        <button onClick={handleAddTodo} className="btn btn-primary">
+        <button onClick={addTodoHandler} className="btn btn-primary">
           Add
         </button>
       </div>
@@ -129,7 +129,7 @@ function App() {
                     value={editText}
                     onChange={(e) => setEditText(e.target.value)}
                     onKeyDown={(e) => handleKeyDown(e, todo.id)}
-                    onBlur={() => handleUpdateTodo(todo.id)}
+                    onBlur={() => updateTodoHandler(todo.id)}
                     autoFocus
                     className="input input-bordered input-sm w-full"
                   />
@@ -151,14 +151,14 @@ function App() {
                     {todo.completed ? "✓" : "○"}
                   </button>
                   <button
-                    onClick={() => handleEditTodo(todo)}
+                    onClick={() => editTodoHandler(todo)}
                     className="btn btn-warning btn-sm"
                     disabled={editingId === todo.id}
                   >
                     Edit
                   </button>
                   <button
-                    onClick={() => handleDeleteTodo(todo.id)}
+                    onClick={() => deleteTodoHandler(todo.id)}
                     className="btn btn-error btn-sm"
                     disabled={editingId === todo.id}
                   >
