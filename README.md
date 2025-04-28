@@ -86,7 +86,9 @@ cd root
 npm run dev
 ```
 
-Database Schema.
+<h3>Database Schema</h3>
+
 ![image](https://github.com/user-attachments/assets/d8b6a508-2bac-4abe-8ccd-3da544bd7639)
-![2025-04-28 22-51-54](https://github.com/user-attachments/assets/76ff3d7e-92ba-4e8b-b097-c61ec33832ff)
+
+https://github.com/user-attachments/assets/1bf732f4-b684-4796-9bde-4e86b6666acd
 
