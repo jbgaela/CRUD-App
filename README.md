@@ -53,8 +53,6 @@ npm install
 
 <h3>Prerequisites</h3>
 
-Here you list all prerequisites necessary for running your project. For example:
-
 - [NodeJS](https://nodejs.org/en)
 - [MySQL](https://www.mysql.com/)
 
